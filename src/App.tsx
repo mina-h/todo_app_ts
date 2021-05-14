@@ -37,6 +37,12 @@ function App() {
     setTodoList([...updatedArray]);
   };
 
+  const removeCompletedItem = (obj:Todo) => {
+    const newArray = JSON.parse(JSON.stringify(todoList));
+    const filteredArray = newArray.filter((e:Todo) => e.id !== obj.id);
+    setTodoList([...filteredArray]);
+  };
+
   return (
     <div className="App">
       <Header />
@@ -45,9 +51,9 @@ function App() {
         <ListToDo list={todoList}
         markItemAsCompleted={ markItemAsCompleted }
         markItemAsUncompleted={ markItemAsUncompleted}
+        removeCompletedItem={ removeCompletedItem }
         />
       </section>
-     
     </div>
   );
 }

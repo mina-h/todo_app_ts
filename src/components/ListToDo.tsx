@@ -13,10 +13,12 @@ interface TodoList {
   list: Todo[],
   markItemAsUncompleted(obj:Todo): void;
   markItemAsCompleted(obj:Todo): void;
+  removeCompletedItem(obj:Todo): void;
 
 }
 
 const ListToDo: React.FC<TodoList> = (props) => {
+  console.log(props.list);
   const filterUncompleted = props.list.filter(e => e.done === false);
   const uncompletedTodos = filterUncompleted
     .map((todo) => <TodoUncompleted todoItem={todo} 
@@ -28,7 +30,8 @@ const ListToDo: React.FC<TodoList> = (props) => {
   const completedTodos = filterCompleted
     .map((todo) => <TodoCompleted todoItem={todo} 
     key ={ todo.id }
-    markItemAsUncompleted={ props.markItemAsUncompleted } />);
+    markItemAsUncompleted={ props.markItemAsUncompleted } 
+    removeCompletedItem={ props.removeCompletedItem }/>);
 
   return (
     <>

@@ -1,5 +1,4 @@
-import { TargetElement } from '@testing-library/user-event';
-import React, { EventHandler, useState } from 'react';
+import React, { useState } from 'react';
 import AddToDoButton from './AddToDoButton';
 
 interface Todo {
@@ -23,8 +22,13 @@ const InputField: React.FC<AddItemFunc> = (props) => {
       alert('Please fill out all fields!');
       return;
     }
+    // const obj = {
+    //   id: Math.random().toString(),
+    //   title: todoItem.title,
+    //   description: todoItem.description,
+    // }
     props.addItemToList(todoItem);
-    setTodoItem({ ...todoItem, title: '', description: '' });
+    setTodoItem({ ...todoItem, id: todoItem.id+1, title: '', description: '' });
   }
 
   const handleInputChange = (event:React.FormEvent) => {

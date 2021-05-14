@@ -10,6 +10,7 @@ interface Todo {
 interface Properties {
   todoItem: Todo,
   markItemAsUncompleted(obj:Todo): void;
+  removeCompletedItem(obj:Todo): void;
 
 }
 const TodoCompleted: React.FC<Properties> = (props
@@ -27,7 +28,7 @@ const TodoCompleted: React.FC<Properties> = (props
         <p className="item__desc">{props.todoItem.description}</p>
       </li>
       <button className="item__completed" onClick={() => props.markItemAsUncompleted(props.todoItem)}>Undone</button>
-      {/* <button className="item__remove" onClick={() => props.removeCompletedItem(todoItem)}>Remove</button> */}
+      <button className="item__remove" onClick={() => props.removeCompletedItem(props.todoItem)}>Remove</button>
     </article>
 );
 
