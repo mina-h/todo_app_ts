@@ -13,6 +13,7 @@ function App() {
 
   const addItemToList = (obj:Todo) => {    
     setTodoList(prevTodoList => [...prevTodoList, obj]);
+    
   };
 
   return (

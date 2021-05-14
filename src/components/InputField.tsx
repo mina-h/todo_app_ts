@@ -1,5 +1,6 @@
 import { TargetElement } from '@testing-library/user-event';
 import React, { EventHandler, useState } from 'react';
+import AddToDoButton from './AddToDoButton';
 
 interface Todo {
   id: string,
@@ -25,8 +26,6 @@ const InputField: React.FC<AddItemFunc> = (props) => {
     props.addItemToList(todoItem);
     setTodoItem({ ...todoItem, title: '', description: '' });
   }
-
- 
 
   const handleInputChange = (event:React.FormEvent) => {
     const { name } = event.target  as HTMLInputElement;
