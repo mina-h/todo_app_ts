@@ -19,14 +19,15 @@ interface TodoList {
 const ListToDo: React.FC<TodoList> = (props) => {
   const filterUncompleted = props.list.filter(e => e.done === false);
   const uncompletedTodos = filterUncompleted
-    .map((todo, index) => <TodoUncompleted todoItem={todo} title={ todo.title }
-    description={ todo.description } key ={ index }
-    markItemAsCompleted={ props.markItemAsCompleted }/>);
+    .map((todo) => <TodoUncompleted todoItem={todo} 
+    key ={ todo.id }
+    markItemAsCompleted={ props.markItemAsCompleted }
+    />);
 
   const filterCompleted = props.list.filter(e => e.done === true);
   const completedTodos = filterCompleted
-    .map((todo, index) => <TodoCompleted todoItem={todo} title={ todo.title }
-    description={ todo.description } key ={ index }
+    .map((todo) => <TodoCompleted todoItem={todo} 
+    key ={ todo.id }
     markItemAsUncompleted={ props.markItemAsUncompleted } />);
 
   return (

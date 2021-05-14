@@ -10,7 +10,6 @@ interface Todo {
 interface Properties {
   todoItem: Todo,
   markItemAsUncompleted(obj:Todo): void;
-  markItemAsCompleted(obj:Todo): void;
 
 }
 const TodoCompleted: React.FC<Properties> = (props
